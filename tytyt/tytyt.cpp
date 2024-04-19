@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 using namespace std;
 
@@ -19,6 +20,9 @@ public:
             cout << "Exiting the operating system..." << endl;
             // Additional code for shutting down the OS can be added here
         }
+        else if (command.substr(0, 5) == "mkdir") {
+            makeDirectory(command.substr(6));
+        }
         else {
             cout << "Unknown command. Type 'help' for a list of commands." << endl;
         }
@@ -31,12 +35,18 @@ private:
         cout << " - help: Show this help message" << endl;
         cout << " - date: Display the current date and time" << endl;
         cout << " - exit: Exit the operating system" << endl;
+        cout << " - mkdir <Directory>: Create a new directory" << endl;
     }
 
     // Display the current date and time
     void displayDate() {
         // Additional code for getting the current date and time from the system can be added here
         cout << "Current date and time: <placeholder for current date and time>" << endl;
+    }
+    void makeDirectory(const string& directory) {
+        // Додатковий код для створення нового каталогу можна додати тут
+        // Наприклад: mkdir(directory.c_str());
+        cout << "Creating directory: " << directory << endl;
     }
 };
 
@@ -58,6 +68,8 @@ int main() {
         if (command == "exit") {
             break;
         }
+
+
     }
 
     return 0;
